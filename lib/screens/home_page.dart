@@ -50,18 +50,26 @@ class _HomePageState extends State<HomePage> {
               width: MediaQuery.of(context).size.width * 0.9,
               height: 35,
               child: ElevatedButton(
-                onPressed: () async {
-                  if (controller.text.isNotEmpty) {
-                    await startElection(controller.text, ethClient!);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ElectionInfo(
-                            ethClient: ethClient!,
-                            electionName: controller.text),
-                      ),
-                    );
-                  }
+                onPressed: ()  {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ElectionInfo(
+                          ethClient: ethClient!,
+                          electionName: controller.text),
+                    ),
+                  );
+                  // if (controller.text.isNotEmpty) {
+                  //   await startElection(controller.text, ethClient!);
+                  //   Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //       builder: (context) => ElectionInfo(
+                  //           ethClient: ethClient!,
+                  //           electionName: controller.text),
+                  //     ),
+                  //   );
+                  // }
                 },
                 child: const Text('Start Election'),
               ),

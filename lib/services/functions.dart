@@ -57,3 +57,13 @@ Future<String> vote(int candidateId, Web3Client ethClient) async{
   print('Voted successfully');
   return response;
 }
+
+Future<List>getTotalVotes(Web3Client ethClient) async{
+  List<dynamic> response = await ask("getTotalVotes", [], ethClient);
+  return response;
+}
+
+Future<List>candidateInfo(int i,Web3Client ethClient) async{
+  List<dynamic> response = await ask("candidateInfo", [BigInt.from(i)], ethClient);
+  return response;
+}
